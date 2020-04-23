@@ -1,0 +1,10 @@
+/* 主题色 */
+@primary-color : #262626;
+/* 次主题色 */
+@sec-color : #ff1f4e;
+/* 初始化蓝 */
+@link-blue: #2db7f5;
+/* 初始化黑 */
+@link-dark: #333333;
+/* 初始化灰 */
+@success-color : #cccccc;
