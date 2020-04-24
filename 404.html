@@ -17,7 +17,8 @@
 				font-family:sans-serif;
 				line-height:1.15;
 				-ms-text-size-adjust:100%;
-				-webkit-text-size-adjust:100%
+				-webkit-text-size-adjust:100%;
+				min-width: 320px;
 			}
 			body {
 				margin:0
@@ -196,6 +197,24 @@
 			div {
 			  -webkit-transform-style: preserve-3d;
 			          transform-style: preserve-3d;
+			}
+
+			.homepage {
+				position: absolute;
+				top: 90%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: #333;
+				padding: 10px;
+				background-color: #fff;
+				border-radius: 5px;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			.homepage:hover {
+				transform: translate(-50%, -30%);
+				transition: 0.6s;
 			}
 			
 			.rail {
@@ -488,19 +507,10 @@
 			  }
 			}
 	    </style>
-	    
-	  	<script>
-		  	window.console = window.console || function(t) {};
-		</script>
-		
-	  	<script>
-		  	if (document.location.search.match(/type=embed/gi)) {
-		    	window.parent.postMessage("resize", "*");
-		  	}
-		</script>
 	</head>
 
 	<body translate="no" >
+		<div class="homepage" onclick="backBtn()">homepage</div>
 		<div class="rail">
 		  	<div class="stamp four">4</div>
 		  	<div class="stamp zero">0</div>
@@ -535,44 +545,7 @@
 		    	</div>
 		  	</div>
 		</div>
-		<script type="text/javascript">
-			! function () {
-			    function e(e) {
-			        t(e), window.PrefixFree && StyleFix.process()
-			    }
-			
-			    function t(e) {
-			        var t = n(),
-			            a = document.createElement("style");
-			        a.type = "text/css", a.className = "cp-pen-styles", a.styleSheet ? a.styleSheet.cssText = e : a.appendChild(document.createTextNode(e)), c.appendChild(a), t && t.parentNode.removeChild(t)
-			    }
-			
-			    function n() {
-			        for (var e = document.getElementsByTagName("style"), t = e.length - 1; t >= 0; t--)
-			            if ("cp-pen-styles" === e[t].className) return e[t];
-			        return !1
-			    }
-			
-			    function a(e) {
-			        window.addEventListener ? window.addEventListener("message", e, !1) : window.attachEvent("onmessage", e)
-			    }
-			
-			    function s(e, t) {
-			        try {
-			            if (!/codepen/.test(e.origin)) return null;
-			            if ("object" != typeof e.data) return null;
-			            if (e.data.action === t) return e.data
-			        } catch (n) {}
-			        return null
-			    }
-			    var c = document.head || document.getElementsByTagName("head")[0],
-			        r = "ACTION_LIVE_VIEW_RELOAD_CSS";
-			    a(function (t) {
-			        var n = s(t, r);
-			        n && e(n.data.css)
-			    })
-			}();
-		</script>
 	</body>
+	<script src="./js/common.js"></script>
 </html>
  

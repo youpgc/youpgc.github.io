@@ -3,12 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
         <title>youpgc</title>
-        <link rel="stylesheet" href="./css/base.css">
-        <link rel="stylesheet" href="./css/theme.css">
-        <link rel="stylesheet" href="./css/public.css">
         <link rel="stylesheet" href="./css/common.css">
-        <script src="./js/index.js"></script>
-        <script src="./js/common.js"></script>
         <style type="text/css">
             :root {
               --m: 1rem;
@@ -26,8 +21,7 @@
               --j: -1;
               --r: 0px;
               height: 100%;
-              background-color: #777777;
-              background: url('./images/entrance-bac.jpg') 50%/cover #777;
+              background: url('./images/index-bac.jpg') 50%/cover #000000;
               background-blend-mode: luminosity;
               position: relative;
             }
@@ -142,20 +136,22 @@
               header {
                 position: relative;
               }
-              header:before, header:after {
+              .entrance-before, .entrance-after {
                 position: absolute;
                 left: 50%;
                 content: "";
               }
-              header:before {
+              .entrance-before {
                 top: 100%;
                 width: calc(.0625 * var(--r));
-                height: calc(2 * var(--r) + var(--m));
+                height: calc(2 * var(--r) + var(--m) + 20px);
                 -webkit-transform: translate(-50%);
                         transform: translate(-50%);
                 background: inherit;
+                margin-top: -20px;
+                animation: playerBefore 3s infinite linear;
               }
-              header:after {
+              .entrance-after {
                 top: calc(3 * var(--m) + 3.125 * var(--r));
                 border: solid calc(.375 * var(--r)) transparent;
                 padding: calc(.375 * var(--r));
@@ -165,10 +161,12 @@
                 box-shadow: 0 0 0 5px #fff;
                 background: #fff padding-box;
                 cursor: pointer;
+                animation: playerAfter 3s infinite linear;
               }
             
               article {
                 width: 40%;
+                animation: player 3s infinite linear;
               }
               article:nth-of-type(-n + 2) {
                 --j: 1;
@@ -184,36 +182,83 @@
                 padding-left: calc(.5 * (1 - var(--i)) * (var(--r) - var(--m)) + var(--p));
               }
             }
+
+            @keyframes player {
+              0% {
+                transform: translateY(0px);
+              }
+              36% {
+                transform: translateY(20px);
+              }
+              100% {
+                transform: translateY(0px);
+              }
+            }
+            
+            @keyframes playerBefore {
+              0% {
+                margin-top: -20px;
+              }
+              36% {
+                margin-top: 0;
+              }
+              100% {
+                margin-top: -20px;
+              }
+            }
+
+            @keyframes playerAfter {
+              0% {
+                margin-top: 0;
+              }
+              36% {
+                margin-top: 20px;
+              }
+              100% {
+                margin-top: 0;
+              }
+            }
         </style>
     </head>
     <body>
         <!-- 首页入口 -->
         <div class="home-entrance">
-            <header>Resize the damn window</header>
+            <header>
+              <div class="entrance-before"></div>
+              <span>Life alone is an unknown practice.</span>
+              <div class="entrance-after"></div>
+            </header>
             <article>
-                <h3>Yogi Bear</h3>
+                <h3>Enter the theme</h3>
                 <section>
-                <p>Smaaaarter than the average bear!</p><a href="#">go</a>
+                  <p>Start your visual journey.</p><a href="./404.html">go</a>
                 </section>
             </article>
             <article>
-                <h3>Boo Boo</h3>
+                <h3>Cool special</h3>
                 <section>
-                <p>The ranger isn't going to like this...</p><a href="#">go</a>
+                  <p>Collection of special effects.</p><a href="./lib/cool-list.html">go</a>
                 </section>
             </article>
             <article>
-                <h3>Cindy Bear</h3>
+                <h3>Demo collection</h3>
                 <section>
-                <p>Oh, that's Yogi...</p><a href="#">go</a>
+                  <p>My daily updates and collections.</p><a href="./lib/demo-list.html">go</a>
                 </section>
             </article>
             <article>
-                <h3>Ranger Smith</h3>
+                <h3>youpgc</h3>
                 <section>
-                <p>Stole a picnic basket?! Yogiii!!!</p><a href="#">go</a>
+                  <p>Know about youpgc.</p><a href="./lib/about.html">go</a>
                 </section>
             </article>
         </div>
     </body>
+    <script src="./js/index.js"></script>
+    <script>
+      var entrance = document.getElementsByClassName('entrance-after')[0];
+      entrance.onclick = function(){
+        window.location.href="./lib/home.html";
+      }
+    </script>
 </html>
