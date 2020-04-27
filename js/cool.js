@@ -27,6 +27,5 @@ var initPage = function(curr, limit){
     if(list.length==0) {
         html += '<div>啊哦，暂时没有更新！</div>';
     }
-    var pageDOM = window.document.getElementById('cool-list');
-    pageDOM.innerHTML = html;
+    window.document.getElementById('cool-list').innerHTML = html;
 }
